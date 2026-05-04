@@ -23,32 +23,61 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8fafc;color:var(--i
 #prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--blue-mid));width:0;z-index:400;transition:width .08s}
 
 /* ── NAV ─────────────────────────────────────────────── */
-nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--slate-mid);transition:box-shadow .3s}
-.nav-top{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;max-width:1300px;margin:0 auto;width:100%}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--slate-mid);transition:box-shadow .3s}
+.nav-top{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;max-width:1300px;margin:0 auto;width:100%;gap:1rem}
 nav.scrolled{box-shadow:var(--shadow)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-/* Original PiS logo recreation */
-.logo-mark{display:flex;flex-direction:column;align-items:center;gap:1px}
-.logo-mark-top{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:800;color:var(--red);letter-spacing:-.03em;line-height:1}
+
+/* LOGO */
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;min-width:0}
+.logo-mark{display:flex;flex-direction:column;align-items:center;gap:1px;flex-shrink:0}
+.logo-mark-top{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:800;color:var(--red);letter-spacing:-.03em;line-height:1;white-space:nowrap}
 .logo-mark-bar{width:100%;height:2px;background:var(--red)}
-.logo-mark-bottom{font-size:.45rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red);line-height:1}
-.logo-text{font-size:.82rem;font-weight:600;color:var(--ink-mid);line-height:1.4;border-left:2px solid var(--slate-mid);padding-left:10px;margin-left:2px}
-.logo-text strong{display:block;font-size:.95rem;font-weight:700;color:var(--ink)}
-.nav-links{display:flex;gap:0;list-style:none}
+.logo-mark-bottom{font-size:.42rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);line-height:1;white-space:nowrap}
+.logo-text{line-height:1.35;border-left:2px solid var(--slate-mid);padding-left:9px;min-width:0;overflow:hidden}
+.logo-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo-text span{display:block;font-size:.68rem;font-weight:500;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* NAV LINKS */
+.nav-links{display:flex;gap:0;list-style:none;flex-shrink:0}
 .nav-item{position:relative}
-.nav-item>a{display:flex;align-items:center;gap:4px;font-size:.82rem;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:.5rem 1rem;transition:color .2s;white-space:nowrap}
+.nav-item>a{display:flex;align-items:center;gap:4px;font-size:.8rem;font-weight:500;color:var(--ink-mid);text-decoration:none;padding:.5rem .85rem;transition:color .2s;white-space:nowrap;cursor:pointer}
 .nav-item>a:hover,.nav-item>a.active{color:var(--red)}
 .nav-item>a svg{width:10px;height:10px;transition:transform .2s}
 .nav-item:hover>a svg{transform:rotate(180deg)}
-/* Dropdown */
+
+/* DROPDOWN */
 .nav-drop{position:absolute;top:calc(100% + 4px);left:0;background:var(--white);border:1px solid var(--slate-mid);border-radius:var(--r);box-shadow:var(--shadow-lg);min-width:220px;padding:.5rem;display:none;z-index:400}
 .nav-item:hover .nav-drop{display:block}
-.nav-drop a{display:block;padding:.55rem .85rem;font-size:.81rem;color:var(--ink-mid);text-decoration:none;border-radius:var(--r-sm);transition:all .15s;font-weight:500}
-.nav-drop a:hover{background:var(--red-light);color:var(--red)}
-.nav-actions{display:flex;gap:.6rem;align-items:center}
-.nav-phone{font-size:.8rem;font-weight:700;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap}
-.nav-cta{background:var(--red);color:#fff;font-size:.78rem;font-weight:700;padding:.5rem 1.1rem;border-radius:40px;text-decoration:none;transition:all .2s;white-space:nowrap;border:none;cursor:pointer}
+.nav-drop button{display:block;width:100%;text-align:left;padding:.55rem .85rem;font-size:.81rem;color:var(--ink-mid);background:none;border:none;border-radius:var(--r-sm);transition:all .15s;font-weight:500;cursor:pointer;font-family:inherit}
+.nav-drop button:hover{background:var(--red-light);color:var(--red)}
+
+/* NAV ACTIONS */
+.nav-actions{display:flex;gap:.55rem;align-items:center;flex-shrink:0}
+.nav-phone{font-size:.79rem;font-weight:700;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.nav-cta{background:var(--red);color:#fff;font-size:.77rem;font-weight:700;padding:.48rem 1rem;border-radius:40px;transition:all .2s;white-space:nowrap;border:none;cursor:pointer;font-family:inherit}
 .nav-cta:hover{background:var(--red-mid);transform:translateY(-1px);box-shadow:0 4px 14px rgba(204,27,27,.35)}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0}
+.hamburger:hover{background:var(--slate)}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE MENU DRAWER */
+.mobile-menu{position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);z-index:250;transform:translateX(100%);transition:transform .3s ease;overflow-y:auto;padding:1.5rem}
+.mobile-menu.open{transform:translateX(0)}
+.mob-nav-item{border-bottom:1px solid var(--slate-mid)}
+.mob-nav-item>button{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;padding:1rem .5rem;font-size:.95rem;font-weight:600;color:var(--ink);background:none;border:none;cursor:pointer;font-family:inherit}
+.mob-nav-item>button:hover{color:var(--red)}
+.mob-sub{padding:.25rem 0 .75rem 1rem;display:none}
+.mob-sub.open{display:block}
+.mob-sub button{display:block;width:100%;text-align:left;padding:.55rem .5rem;font-size:.85rem;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit;font-weight:500}
+.mob-sub button:hover{color:var(--red)}
+.mob-actions{padding:1.25rem .5rem;display:flex;flex-direction:column;gap:.75rem}
+.mob-phone{display:flex;align-items:center;gap:6px;font-size:1rem;font-weight:700;color:var(--red);text-decoration:none;padding:.75rem;background:var(--red-light);border-radius:var(--r);border:1px solid var(--red-border)}
+.mob-support{background:var(--red);color:#fff;border:none;border-radius:var(--r);padding:.85rem;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit;width:100%}
 
 /* ── PAGE SYSTEM ─────────────────────────────────────── */
 .page{display:none;animation:fadeIn .35s ease}
@@ -287,18 +316,41 @@ footer ul button:hover{color:#fff}
 .notif{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;border-radius:var(--r);padding:1rem 1.5rem;font-size:.85rem;z-index:500;transition:transform .35s ease;box-shadow:var(--shadow-lg);min-width:280px;text-align:center}
 .notif.show{transform:translateX(-50%) translateY(0)}
 
-/* MOBILE */
+/* ── RESPONSIVE ───────────────────────────────────────── */
+/* Hide logo subtitle on medium screens */
+@media(max-width:1100px){
+  .logo-text span{display:none}
+  .nav-item>a{padding:.5rem .6rem;font-size:.77rem}
+  .nav-phone{display:none}
+}
+/* Switch to hamburger at 900px */
 @media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-phone{display:none}
   .hero-inner,.cisco-inner-g,.svc-overview-grid,.enquiry-grid{grid-template-columns:1fr;gap:2rem}
   .fg{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
   .ms-header{flex-direction:column}
   .hours-inner{flex-direction:column;text-align:center}.hours-days{justify-content:center}
   .svc-ph-inner{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .svc-cta-sidebar{position:static}
+  .hero{padding-top:5rem}
 }
-@media(max-width:600px){.fg{grid-template-columns:1fr}.hero-btns{flex-direction:column;align-items:flex-start}}
+/* Small mobile */
+@media(max-width:600px){
+  .fg{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+  .logo-text strong{font-size:.82rem}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .ind-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .nav-cta{display:none}
+}
+@media(max-width:400px){
+  .logo-text{display:none}
+  .process-grid,.ind-grid,.why-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -308,8 +360,7 @@ footer ul button:hover{color:#fff}
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-top">
-    <a href="#" class="nav-logo" onclick="showPage('home');return false">
-      <!-- Original PiS logo style: red P·i·S with shield feel -->
+    <a href="javascript:void(0)" class="nav-logo" onclick="navHome()">
       <div class="logo-mark">
         <div class="logo-mark-top">PiS</div>
         <div class="logo-mark-bar"></div>
@@ -317,35 +368,65 @@ footer ul button:hover{color:#fff}
       </div>
       <div class="logo-text">
         <strong>Pioneer Information Solutions</strong>
-        IT Support · Stanmore, Middlesex
+        <span>IT Support · Stanmore, Middlesex</span>
       </div>
     </a>
     <ul class="nav-links">
       <li class="nav-item">
-        <a href="#" onclick="showPage('home');return false">Home</a>
+        <a href="javascript:void(0)" onclick="navHome()">Home</a>
       </li>
       <li class="nav-item">
-        <a href="#">Products &amp; Services
+        <a href="javascript:void(0)">Products &amp; Services
           <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg>
         </a>
         <div class="nav-drop" id="svcDrop"></div>
       </li>
       <li class="nav-item">
-        <a href="#" onclick="showPage('home');scrollAfter('industries');return false">Our Industries</a>
+        <a href="javascript:void(0)" onclick="navTo('industries')">Our Industries</a>
       </li>
       <li class="nav-item">
-        <a href="#" onclick="showPage('home');scrollAfter('microsoft');return false">Our Partners</a>
+        <a href="javascript:void(0)" onclick="navTo('microsoft')">Our Partners</a>
       </li>
       <li class="nav-item">
-        <a href="#" onclick="showPage('home');scrollAfter('contact');return false">Contact Us</a>
+        <a href="javascript:void(0)" onclick="navTo('contact')">Contact Us</a>
       </li>
     </ul>
     <div class="nav-actions">
       <a href="tel:+442082049628" class="nav-phone">📞 020 8204 9628</a>
-      <button class="nav-cta" onclick="openEnquiry('general','Request IT Support')">Get Support</button>
+      <button class="nav-cta" onclick="openEnquiry()">Get Support</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-nav-item">
+    <button onclick="navHome();closeMobileMenu()">Home</button>
+  </div>
+  <div class="mob-nav-item">
+    <button onclick="document.getElementById('mobSub').classList.toggle('open');this.querySelector('svg').style.transform=document.getElementById('mobSub').classList.contains('open')?'rotate(180deg)':''">
+      Products &amp; Services
+      <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px;transition:transform .2s"><path d="M1 1l4 4 4-4"/></svg>
+    </button>
+    <div class="mob-sub" id="mobSub"></div>
+  </div>
+  <div class="mob-nav-item">
+    <button onclick="navTo('industries');closeMobileMenu()">Our Industries</button>
+  </div>
+  <div class="mob-nav-item">
+    <button onclick="navTo('microsoft');closeMobileMenu()">Our Partners</button>
+  </div>
+  <div class="mob-nav-item">
+    <button onclick="navTo('contact');closeMobileMenu()">Contact Us</button>
+  </div>
+  <div class="mob-actions">
+    <a href="tel:+442082049628" class="mob-phone">📞 020 8204 9628</a>
+    <button class="mob-support" onclick="openEnquiry();closeMobileMenu()">📞 Request IT Support</button>
+  </div>
+</div>
 
 <!-- ════════════════ HOME PAGE ════════════════ -->
 <div class="page active" id="page-home">
@@ -360,7 +441,7 @@ footer ul button:hover{color:#fff}
         <p class="hero-desc r0 d2">Pioneer Information Solutions delivers enterprise-grade IT support, network infrastructure, cybersecurity, and managed services to businesses, schools, and government across Stanmore and Harrow.</p>
         <div class="hero-btns r0 d3">
           <button class="btn-red" onclick="openEnquiry('general','Request IT Support')">📞 Request IT Support</button>
-          <button class="btn-outline" onclick="showPage('home');document.getElementById('services').scrollIntoView({behavior:'smooth'})">See Our Services →</button>
+          <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See Our Services →</button>
         </div>
         <div class="trust-row r0 d4">
           <span class="trust-badge">🏆 Microsoft Partner</span>
@@ -537,23 +618,23 @@ footer ul button:hover{color:#fff}
       <div class="r0 d2">
         <h4>Industries</h4>
         <ul>
-          <li><button onclick="scrollAfter('industries')">Business</button></li>
-          <li><button onclick="scrollAfter('industries')">Local Government</button></li>
-          <li><button onclick="scrollAfter('industries')">Education & Charity</button></li>
-          <li><button onclick="scrollAfter('industries')">Home & Personal</button></li>
+          <li><button onclick="navTo('industries')">Business</button></li>
+          <li><button onclick="navTo('industries')">Local Government</button></li>
+          <li><button onclick="navTo('industries')">Education & Charity</button></li>
+          <li><button onclick="navTo('industries')">Home & Personal</button></li>
         </ul>
         <br><h4>Partners</h4>
         <ul>
-          <li><button onclick="scrollAfter('microsoft')">Microsoft Partner</button></li>
-          <li><button onclick="scrollAfter('cisco')">Cisco Select</button></li>
+          <li><button onclick="navTo('microsoft')">Microsoft Partner</button></li>
+          <li><button onclick="navTo('cisco')">Cisco Select</button></li>
           <li><button onclick="showServicePage('eset')">ESET Security</button></li>
         </ul>
       </div>
       <div class="r0 d3">
         <h4>Company</h4>
         <ul>
-          <li><button onclick="scrollAfter('why')">About Us</button></li>
-          <li><button onclick="scrollAfter('contact')">Contact Us</button></li>
+          <li><button onclick="navTo('why')">About Us</button></li>
+          <li><button onclick="navTo('contact')">Contact Us</button></li>
           <li><button>Privacy Policy</button></li>
           <li><button>Terms & Conditions</button></li>
         </ul>
@@ -573,9 +654,9 @@ footer ul button:hover{color:#fff}
   <div class="svc-page-header" id="svcHeader">
     <div style="max-width:1200px;margin:0 auto;padding:0 2rem">
       <div class="svc-breadcrumb">
-        <button onclick="showPage('home')">Home</button>
+        <button onclick="navHome()">Home</button>
         <span>/</span>
-        <button onclick="showPage('home');document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</button>
+        <button onclick="navHome();setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),350)">Services</button>
         <span>/</span>
         <span id="svcBreadcrumb">Service Name</span>
       </div>
@@ -1033,12 +1114,24 @@ const services = [
 
 // ── BUILD SERVICE DROPDOWN ────────────────────────────────────────
 const drop = document.getElementById('svcDrop');
+const mobSub = document.getElementById('mobSub');
 const supportSel = document.getElementById('supportServiceSelect');
 const quoteSel = document.getElementById('quoteServiceSelect');
 services.forEach(s => {
-  drop.innerHTML += `<a href="#" onclick="showServicePage('${s.id}');return false">${s.title}</a>`;
-  supportSel.innerHTML += `<option>${s.title}</option>`;
-  quoteSel.innerHTML += `<option>${s.title}</option>`;
+  const btn = document.createElement('button');
+  btn.textContent = s.title;
+  btn.onclick = () => showServicePage(s.id);
+  drop.appendChild(btn);
+
+  const mBtn = document.createElement('button');
+  mBtn.textContent = s.title;
+  mBtn.onclick = () => { showServicePage(s.id); closeMobileMenu(); };
+  mobSub.appendChild(mBtn);
+
+  const opt1 = document.createElement('option');
+  opt1.textContent = s.title; supportSel.appendChild(opt1);
+  const opt2 = document.createElement('option');
+  opt2.textContent = s.title; quoteSel.appendChild(opt2);
 });
 
 // ── BUILD HOME SERVICE GRID ───────────────────────────────────────
@@ -1046,20 +1139,24 @@ const homeGrid = document.getElementById('homeGrid');
 const footerLinks = document.getElementById('footerSvcLinks');
 services.filter(s => s.id !== 'eset' && s.id !== 'remote').forEach((s,i) => {
   const d = ['','d1','d2','d3'][i%4];
-  homeGrid.innerHTML += `<div class="svc-card r0${d?' '+d:''}">
-    <div class="svc-icon-wrap">${icons[s.icon]}</div>
-    <h3>${s.title}</h3>
-    <p>${s.short}</p>
-    <button class="svc-learn" onclick="showServicePage('${s.id}')">Learn more →</button>
-  </div>`;
-  footerLinks.innerHTML += `<li><button onclick="showServicePage('${s.id}')">${s.title}</button></li>`;
+  const card = document.createElement('div');
+  card.className = `svc-card r0${d?' '+d:''}`;
+  card.innerHTML = `<div class="svc-icon-wrap">${icons[s.icon]}</div>
+    <h3>${s.title}</h3><p>${s.short}</p>
+    <button class="svc-learn" onclick="showServicePage('${s.id}')">Learn more →</button>`;
+  homeGrid.appendChild(card);
+
+  const li = document.createElement('li');
+  li.innerHTML = `<button onclick="showServicePage('${s.id}')">${s.title}</button>`;
+  footerLinks.appendChild(li);
 });
-homeGrid.innerHTML += `<div class="svc-card r0 d2">
-  <div class="svc-icon-wrap">${icons.remote}</div>
+const remCard = document.createElement('div');
+remCard.className = 'svc-card r0 d2';
+remCard.innerHTML = `<div class="svc-icon-wrap">${icons.remote}</div>
   <h3>Remote Support</h3>
   <p>Fast, secure remote desktop access to resolve issues without waiting for an engineer visit.</p>
-  <button class="svc-learn" onclick="showServicePage('remote')">Learn more →</button>
-</div>`;
+  <button class="svc-learn" onclick="showServicePage('remote')">Learn more →</button>`;
+homeGrid.appendChild(remCard);
 
 // ── PAGE NAVIGATION ───────────────────────────────────────────────
 function showPage(id) {
@@ -1068,15 +1165,34 @@ function showPage(id) {
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+function navHome() {
+  if (document.getElementById('page-home').classList.contains('active')) {
+    window.scrollTo({top:0,behavior:'smooth'});
+  } else {
+    showPage('home');
+  }
+}
+
+function navTo(id) {
+  if (!document.getElementById('page-home').classList.contains('active')) {
+    showPage('home');
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({behavior:'smooth'});
+    }, 350);
+  } else {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({behavior:'smooth'});
+  }
+}
+
 function showServicePage(id) {
   const s = services.find(x => x.id === id);
   if (!s) return;
-  // populate header
   document.getElementById('svcBreadcrumb').textContent = s.title;
   document.getElementById('svcPageTitle').textContent = s.title;
   document.getElementById('svcPageDesc').textContent = s.desc;
   document.getElementById('svcPageIcon').innerHTML = icons[s.icon];
-  // features
   document.getElementById('svcFeatTitle').textContent = `What's Included — ${s.title}`;
   document.getElementById('svcFeatList').innerHTML = s.features.map(f =>
     `<div class="svc-feat">
@@ -1084,7 +1200,6 @@ function showServicePage(id) {
       <div><h4>${f.title}</h4><p>${f.body}</p></div>
     </div>`
   ).join('');
-  // process
   document.getElementById('svcProcess').innerHTML = s.process.map(p =>
     `<div class="process-step">
       <div class="step-num">${p.num}</div>
@@ -1092,8 +1207,10 @@ function showServicePage(id) {
       <p>${p.body}</p>
     </div>`
   ).join('');
-  // set support form service
-  document.getElementById('supportServiceSelect').value = s.title;
+  const sel = document.getElementById('supportServiceSelect');
+  for (let i=0; i<sel.options.length; i++) {
+    if (sel.options[i].text === s.title) { sel.selectedIndex = i; break; }
+  }
   switchTab('overview');
   showPage('service');
 }
@@ -1106,13 +1223,33 @@ function switchTab(name) {
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function openEnquiry(svcId, tabLabel) { switchTab('enquiry'); showPage('service'); }
+function openEnquiry() {
+  if (!document.getElementById('page-service').classList.contains('active')) {
+    // show support page with general enquiry
+    showServicePage('support');
+  }
+  switchTab('enquiry');
+}
 
 function scrollAfter(id) {
   setTimeout(() => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({behavior:'smooth'});
   }, 100);
+}
+
+// ── MOBILE MENU ───────────────────────────────────────────────────
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) { menu.classList.remove('open'); ham.classList.remove('open'); document.body.style.overflow=''; }
+  else { menu.classList.add('open'); ham.classList.add('open'); document.body.style.overflow='hidden'; }
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
 }
 
 // ── FORM SUBMIT ───────────────────────────────────────────────────
@@ -1130,6 +1267,15 @@ window.addEventListener('scroll',()=>{
   prog.style.width=pct+'%';
   navEl.classList.toggle('scrolled',window.scrollY>10);
   btt.classList.toggle('show',window.scrollY>400);
+});
+
+// Close mobile menu on outside click
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) {
+    closeMobileMenu();
+  }
 });
 
 // ── REVEAL ────────────────────────────────────────────────────────
