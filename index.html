@@ -398,6 +398,38 @@ nav.scrolled{box-shadow:var(--shadow)}
 .info-block h4{font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
 .info-block p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
+/* ── GOOGLE REVIEWS ───────────────────────────────────── */
+.reviews-section{background:var(--white);padding:5rem 2rem;border-top:1px solid var(--slate-mid)}
+.reviews-header{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.reviews-score{display:flex;align-items:center;gap:1rem;background:var(--slate);border:1px solid var(--slate-mid);border-radius:var(--r-lg);padding:1rem 1.5rem}
+.reviews-score-num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:800;color:var(--ink);line-height:1}
+.reviews-score-right{display:flex;flex-direction:column;gap:3px}
+.stars-row{display:flex;gap:2px}
+.star{color:#f9ab00;font-size:1.1rem;line-height:1}
+.reviews-score-label{font-size:.72rem;color:var(--muted);font-weight:500}
+.reviews-carousel-wrap{overflow:hidden}
+.reviews-track{display:flex;gap:1.25rem;transition:transform .42s cubic-bezier(.25,.46,.45,.94)}
+.review-card{background:var(--white);border:1.5px solid var(--slate-mid);border-radius:var(--r-lg);padding:1.5rem;min-width:340px;max-width:340px;flex-shrink:0;transition:border-color .25s,box-shadow .25s,transform .25s;position:relative}
+.review-card:hover{border-color:rgba(249,171,0,.45);box-shadow:0 6px 28px rgba(249,171,0,.1);transform:translateY(-3px)}
+.review-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f9ab00,#fbcc3a);border-radius:var(--r-lg) var(--r-lg) 0 0;opacity:0;transition:opacity .25s}
+.review-card:hover::before{opacity:1}
+.review-top{display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem}
+.reviewer-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;color:#fff;flex-shrink:0;font-family:'Fraunces',serif}
+.reviewer-name{font-size:.87rem;font-weight:700;color:var(--ink);line-height:1.2}
+.reviewer-meta{font-size:.69rem;color:var(--muted);margin-top:.1rem}
+.review-stars{display:flex;gap:2px;margin-bottom:.7rem}
+.review-stars .star{font-size:.85rem}
+.review-text{font-size:.81rem;color:var(--ink-mid);line-height:1.72}
+.review-source{display:flex;align-items:center;gap:5px;font-size:.67rem;color:var(--muted);margin-top:.85rem;padding-top:.85rem;border-top:1px solid var(--slate-mid)}
+.carousel-nav{display:flex;justify-content:center;align-items:center;gap:.7rem;margin-top:1.5rem}
+.carousel-btn{width:34px;height:34px;border-radius:50%;background:var(--white);border:1.5px solid var(--slate-mid);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:.8rem;line-height:1}
+.carousel-btn:hover:not(:disabled){background:var(--red);border-color:var(--red);color:#fff}
+.carousel-btn:disabled{opacity:.3;cursor:not-allowed}
+.carousel-dots{display:flex;gap:.4rem;align-items:center}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:var(--slate-mid);border:none;cursor:pointer;transition:all .22s;padding:0}
+.carousel-dot.active{background:var(--red);width:18px;border-radius:3px}
+@media(max-width:600px){.review-card{min-width:calc(100vw - 4rem);max-width:calc(100vw - 4rem)}}
+
 /* ── MICROSOFT ───────────────────────────────────────── */
 .ms-section{background:linear-gradient(135deg,#0078d4 0%,#005a9e 100%);padding:5rem 2rem;overflow:hidden;position:relative}
 .ms-section::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:rgba(255,255,255,.04);border-radius:50%;pointer-events:none}
@@ -833,6 +865,141 @@ footer ul button:hover{color:#fff}
         <div class="why-card r0 d1"><div class="why-num">02</div><h3>Local & Responsive</h3><p>Based in Stanmore — on-site visits when remote won't do. We know Harrow and Middlesex.</p></div>
         <div class="why-card r0 d2"><div class="why-num">03</div><h3>One Point of Contact</h3><p>One trusted partner handling everything from a broken laptop to a full network overhaul.</p></div>
         <div class="why-card r0 d3"><div class="why-num">04</div><h3>Cross-Sector Expertise</h3><p>Business, government, education, charity — 20 years means we've seen your problem before.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GOOGLE REVIEWS ──────────────────────────────── -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <div>
+          <p class="sl r0">What Our Clients Say</p>
+          <h2 class="st r0 d1">Real Google Reviews</h2>
+          <p class="r0 d2" style="color:var(--muted);font-size:.88rem;line-height:1.7;max-width:440px">Every review below is genuine — taken directly from Google. We don't edit them.</p>
+        </div>
+        <div class="reviews-score r0 d2" style="min-width:230px">
+          <!-- Score + stars -->
+          <div style="display:flex;align-items:center;gap:.85rem;margin-bottom:1rem">
+            <div class="reviews-score-num">4.9</div>
+            <div>
+              <div class="stars-row">
+                <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                <span style="position:relative;display:inline-block;font-size:1.1rem;color:#e0e0e0;line-height:1">★<span style="position:absolute;left:0;top:0;width:90%;overflow:hidden;white-space:nowrap;color:#f9ab00">★</span></span>
+              </div>
+              <div class="reviews-score-label" style="margin-top:4px">49 Google Reviews</div>
+            </div>
+          </div>
+          <!-- Rating bars -->
+          <div style="display:grid;gap:6px">
+            <div style="display:flex;align-items:center;gap:7px">
+              <span style="font-size:.72rem;font-weight:600;color:var(--muted);width:7px;text-align:right">5</span>
+              <div style="flex:1;height:7px;background:var(--slate-mid);border-radius:4px;overflow:hidden">
+                <div style="width:92%;height:100%;background:#f9ab00;border-radius:4px;transition:width .8s ease"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px">
+              <span style="font-size:.72rem;font-weight:600;color:var(--muted);width:7px;text-align:right">4</span>
+              <div style="flex:1;height:7px;background:var(--slate-mid);border-radius:4px;overflow:hidden">
+                <div style="width:8%;height:100%;background:#f9ab00;border-radius:4px"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px">
+              <span style="font-size:.72rem;font-weight:600;color:var(--muted);width:7px;text-align:right">3</span>
+              <div style="flex:1;height:7px;background:var(--slate-mid);border-radius:4px;overflow:hidden">
+                <div style="width:0%;height:100%;background:#f9ab00;border-radius:4px"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px">
+              <span style="font-size:.72rem;font-weight:600;color:var(--muted);width:7px;text-align:right">2</span>
+              <div style="flex:1;height:7px;background:var(--slate-mid);border-radius:4px;overflow:hidden">
+                <div style="width:2%;height:100%;background:#f9ab00;border-radius:4px"></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px">
+              <span style="font-size:.72rem;font-weight:600;color:var(--muted);width:7px;text-align:right">1</span>
+              <div style="flex:1;height:7px;background:var(--slate-mid);border-radius:4px;overflow:hidden">
+                <div style="width:0%;height:100%;background:#f9ab00;border-radius:4px"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Google attribution -->
+          <div style="margin-top:.85rem;display:flex;align-items:center;gap:5px;font-size:.66rem;color:var(--muted);padding-top:.75rem;border-top:1px solid var(--slate-mid)">
+            <svg viewBox="0 0 24 24" width="12" height="12" style="flex-shrink:0"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google · Pioneer Information Solutions
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-carousel-wrap r0 d3">
+        <div class="reviews-track" id="reviewsTrack">
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar" style="background:#e37400">N</div>
+              <div><div class="reviewer-name">Nilesh Gorasia</div><div class="reviewer-meta">8 reviews · 3 photos · a week ago</div></div>
+            </div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="review-text">Really knowledgeable and friendly team, highly recommend for any pc issues. They fixed an issue with my custom pc build very promptly and gave great advice. Will go here again for any future pc needs. Thanks guys</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" width="13" height="13"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google Review</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar" style="background:#1a73e8">J</div>
+              <div><div class="reviewer-name">Joe Heels</div><div class="reviewer-meta">1 review · 6 months ago</div></div>
+            </div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="review-text">It started with a problem with my custom computer not working. The staff were very knowledgeable and caring. They explained what they were going to do to try to fix it and was up front with the costs and the process. All fixed and now working. I would recommend them for any pc or laptop fixes. Very polish and professional.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" width="13" height="13"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google Review</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar" style="background:#7c5cbf">W</div>
+              <div><div class="reviewer-name">Wage Rage</div><div class="reviewer-meta">2 reviews · 10 months ago</div></div>
+            </div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="review-text">It all started with an overheating problem with my laptop — it frequently overheated and shut off. I had been looking for a place to replace the thermal paste, however most were too far away or too shady looking. Then I saw the Pioneer IS sign. The service was super fast — I came back the next day to pick it up and they let me test the temperature in the shop. Much better! Very understanding, welcoming and very VERY professional. I think they just got a customer for LIFE!!!!!</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" width="13" height="13"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google Review</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar" style="background:#c2392b">N</div>
+              <div><div class="reviewer-name">Neeta Patel</div><div class="reviewer-meta">8 reviews · 2 years ago</div></div>
+            </div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="review-text">It's very stressful when the laptop one relies on just doesn't start one day. This happened to me this week. I had been recommended to Pioneer IS. I cannot thank Chand enough for getting it working. He was so helpful when I called and spent time explaining my options very clearly. I recommend these guys highly. Efficient service and very fair prices. A happy customer. Thank You!</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" width="13" height="13"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google Review</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar" style="background:#0f9d58">V</div>
+              <div><div class="reviewer-name">Victoria Whyte</div><div class="reviewer-meta">8 reviews · a year ago</div></div>
+            </div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="review-text">Spoke to the most helpful, and knowledgeable guy on the phone today. He was clear and explained everything with patience and clarity. The advice he gave me was really appreciated and honest. Will definitely come back as a customer in the near future.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" width="13" height="13"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google Review</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-top">
+              <div class="reviewer-avatar" style="background:#1a73e8">B</div>
+              <div><div class="reviewer-name">Bharat Kumar</div><div class="reviewer-meta">6 reviews · 3 photos · a year ago</div></div>
+            </div>
+            <div class="review-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <div class="review-text">Great service and economical. They are super friendly.</div>
+            <div class="review-source"><svg viewBox="0 0 24 24" width="13" height="13"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google Review</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="revPrev" onclick="moveReviews(-1)" aria-label="Previous reviews">←</button>
+        <div class="carousel-dots" id="revDots"></div>
+        <button class="carousel-btn" id="revNext" onclick="moveReviews(1)" aria-label="Next reviews">→</button>
       </div>
     </div>
   </section>
@@ -1508,14 +1675,46 @@ const services = [
 // Routes: #home | #services | #clients | #industries | #partners |
 //         #contact | #service/{id} | #service/{id}/enquiry | etc.
 
-const ROUTES = {
-  home:       () => activatePage('home'),
-  services:   () => { activatePage('home'); smoothTo('services'); },
-  industries: () => { activatePage('home'); smoothTo('industries'); },
-  partners:   () => { activatePage('home'); smoothTo('microsoft'); },
-  contact:    () => { activatePage('home'); smoothTo('contact'); },
-  clients:    () => { activatePage('clients'); }
-};
+// ── HASH ROUTER with proper back-navigation ───────────────────────
+
+// ── CAROUSEL ──────────────────────────────────────────────────────
+let revIdx = 0;
+const VISIBLE = () => window.innerWidth < 640 ? 1 : window.innerWidth < 1000 ? 2 : 3;
+function buildDots() {
+  const dots = document.getElementById('revDots');
+  if (!dots) return;
+  const cards = document.querySelectorAll('.review-card').length;
+  const pages = Math.ceil(cards / VISIBLE());
+  dots.innerHTML = '';
+  for (let i=0; i<pages; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i===revIdx?' active':'');
+    d.setAttribute('aria-label','Page '+(i+1));
+    d.onclick = () => { revIdx=i; updateCarousel(); };
+    dots.appendChild(d);
+  }
+}
+function updateCarousel() {
+  const track = document.getElementById('reviewsTrack');
+  if (!track) return;
+  const card = track.querySelector('.review-card');
+  if (!card) return;
+  const cardW = card.offsetWidth + 20; // gap=20
+  const vis = VISIBLE();
+  const maxIdx = Math.ceil(track.children.length / vis) - 1;
+  revIdx = Math.max(0, Math.min(revIdx, maxIdx));
+  track.style.transform = `translateX(-${revIdx * vis * cardW}px)`;
+  document.getElementById('revPrev').disabled = revIdx === 0;
+  document.getElementById('revNext').disabled = revIdx >= maxIdx;
+  document.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i===revIdx));
+}
+function moveReviews(dir) { revIdx += dir; updateCarousel(); }
+window.addEventListener('resize', () => { buildDots(); updateCarousel(); });
+setTimeout(() => { buildDots(); updateCarousel(); }, 300);
+
+// ── HASH ROUTER with proper back-navigation ───────────────────────
+// Store where on the home page user was before navigating away
+let _returnAnchor = null;
 
 function activatePage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1525,24 +1724,53 @@ function activatePage(id) {
 }
 
 function smoothTo(id) {
-  // slight delay to let page activate first
   setTimeout(()=>{ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }, 80);
 }
 
+// Get the section currently most visible in viewport
+function getVisibleSection() {
+  const sections = ['services','microsoft','industries','clients','reviews','why','contact'];
+  let best = null, bestRatio = 0;
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const rect = el.getBoundingClientRect();
+    const visible = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+    const ratio = visible / el.offsetHeight;
+    if (ratio > bestRatio) { bestRatio = ratio; best = id; }
+  }
+  return best;
+}
+
+const ROUTES = {
+  home:       (anchor) => { activatePage('home'); if(anchor) smoothTo(anchor); },
+  services:   () => { activatePage('home'); smoothTo('services'); },
+  industries: () => { activatePage('home'); smoothTo('industries'); },
+  partners:   () => { activatePage('home'); smoothTo('microsoft'); },
+  contact:    () => { activatePage('home'); smoothTo('contact'); },
+  clients:    () => { activatePage('clients'); }
+};
+
 function navigate(route, tab) {
-  // route examples: 'home', 'clients', 'services', 'service/network'
   const parts = route.split('/');
   if (parts[0] === 'service') {
     const svcId = parts[1] || 'support';
+    // Save where we are on home page before leaving
+    if (document.getElementById('page-home').classList.contains('active')) {
+      _returnAnchor = getVisibleSection() || 'services';
+    }
     loadServicePage(svcId);
     if (tab) switchTab(tab);
-    window.location.hash = '#service/'+svcId+(tab?'/'+tab:'');
+    const newHash = '#service/'+svcId+(tab?'/'+tab:'');
+    // Push state so back button works
+    history.pushState({page:'service', svcId, tab:tab||'overview', returnAnchor:_returnAnchor}, '', newHash);
   } else {
-    window.location.hash = '#'+route;
+    history.pushState({page:route}, '', '#'+route);
+    if (ROUTES[route]) ROUTES[route]();
   }
 }
 
-function handleHash() {
+function handleHash(state) {
   const hash = window.location.hash.replace('#','') || 'home';
   const parts = hash.split('/');
   const root = parts[0];
@@ -1553,13 +1781,42 @@ function handleHash() {
     loadServicePage(svcId);
     switchTabSilent(tab);
   } else if (ROUTES[root]) {
-    ROUTES[root]();
+    // If going back to home and we have a return anchor, scroll there
+    const anchor = state && state.returnAnchor ? state.returnAnchor : null;
+    if (root === 'home' && anchor) {
+      activatePage('home');
+      smoothTo(anchor);
+    } else {
+      ROUTES[root]();
+    }
   } else {
     ROUTES.home();
   }
 }
 
-window.addEventListener('hashchange', handleHash);
+// popstate fires when Back/Forward is pressed
+window.addEventListener('popstate', (e) => {
+  const state = e.state;
+  if (state && state.page === 'service') {
+    loadServicePage(state.svcId);
+    switchTabSilent(state.tab || 'overview');
+  } else if (state && state.page && ROUTES[state.page]) {
+    const anchor = state.returnAnchor || null;
+    if (state.page === 'home' && anchor) {
+      activatePage('home');
+      smoothTo(anchor);
+    } else {
+      ROUTES[state.page]();
+    }
+  } else {
+    handleHash(state);
+  }
+});
+
+window.addEventListener('hashchange', () => {
+  // Only handle if NOT triggered by our navigate() (which sets state)
+  if (!history.state) handleHash(null);
+});
 
 // ── BUILD SERVICE DROPDOWN ────────────────────────────────────────
 const drop = document.getElementById('svcDrop');
@@ -1876,8 +2133,18 @@ const cObs=new IntersectionObserver(es=>{
 const hs=document.querySelector('.h-stats');
 if(hs)cObs.observe(hs);
 
-// ── BOOT: resolve hash on first load ─────────────────────────────
-handleHash();
+// ── BOOT ─────────────────────────────────────────────────────────
+const initHash = window.location.hash.replace('#','') || 'home';
+const initParts = initHash.split('/');
+// Set initial history state
+if (!history.state) {
+  if (initParts[0] === 'service') {
+    history.replaceState({page:'service', svcId:initParts[1]||'support', tab:initParts[2]||'overview', returnAnchor:'services'}, '', window.location.href);
+  } else {
+    history.replaceState({page:initParts[0]||'home'}, '', window.location.href);
+  }
+}
+handleHash(history.state);
 </script>
 </body>
 </html>
